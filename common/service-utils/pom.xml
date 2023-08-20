@@ -17,9 +17,9 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.liuqiang</groupId>
-            <artifactId>common-util</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.liuqiang.ssyx</groupId>
+            <artifactId>common-utils</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <!-- redis -->
