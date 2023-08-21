@@ -6,12 +6,12 @@ import lombok.Data;
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: ssyx自定义类
+ * @description: SSyx自定义异常处理类
  * @date 2023/8/21 1:12
  */
 
 @Data
-public class SsyxException extends RuntimeException {
+public class SSyxException extends RuntimeException {
     //异常状态码
     private Integer code;
 
@@ -20,7 +20,7 @@ public class SsyxException extends RuntimeException {
      * @param message
      * @param code
      */
-    public SsyxException(String message, Integer code) {
+    public SSyxException(String message, Integer code) {
         super(message);
         this.code = code;
     }
@@ -29,14 +29,14 @@ public class SsyxException extends RuntimeException {
      * 接收枚举类型对象
      * @param resultCodeEnum
      */
-    public SsyxException(ResultCodeEnum resultCodeEnum) {
+    public SSyxException(ResultCodeEnum resultCodeEnum) {
         super(resultCodeEnum.getMessage());
         this.code = resultCodeEnum.getCode();
     }
 
     @Override
     public String toString() {
-        return "GuliException{" +
+        return "SSyxException{" +
                 "code=" + code +
                 ", message=" + this.getMessage() +
                 '}';

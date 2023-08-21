@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: 统一结果返回枚举类
+ * @description: 统一结果返回响应信息类
  * @date 2023/8/21 1:13
  */
 @Getter
