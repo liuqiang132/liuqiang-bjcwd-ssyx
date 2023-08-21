@@ -1,4 +1,4 @@
-package com.liuqiang.ssyx.arl.controller;
+package com.liuqiang.ssyx.login.controller;
 
 import com.liuqiang.ssyx.common.result.Result;
 import io.swagger.annotations.Api;

@@ -22,6 +22,7 @@
         <module>service-search</module>
         <module>service-sys</module>
         <module>service-user</module>
+        <module>service-login</module>
     </modules>
 
     <properties>
