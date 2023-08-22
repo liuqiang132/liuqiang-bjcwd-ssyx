@@ -91,7 +91,7 @@ public class RoleController {
 
     @ApiOperation(value = "批量删除多个角色")
     @DeleteMapping("/batchRemove")
-    public Result removeRoles(@RequestBody List<Integer> ids) {
+    public Result removeRoles(@RequestBody List<Long> ids) {
         boolean removeByIds = roleService.removeByIds(ids);
         if (removeByIds){
             return Result.success(null);

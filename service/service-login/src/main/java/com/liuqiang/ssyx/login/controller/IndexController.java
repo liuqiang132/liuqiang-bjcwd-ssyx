@@ -15,7 +15,7 @@ import java.util.Map;
  * @date 2023/8/21 19:06
  */
 @RestController
-@RequestMapping("/admin/acl/index")
+@RequestMapping("/login/acl/index")
 @CrossOrigin("*") //后期微服务中使用服务网关进行统一处理
 @Api(tags = "登录接口")
 public class IndexController {
