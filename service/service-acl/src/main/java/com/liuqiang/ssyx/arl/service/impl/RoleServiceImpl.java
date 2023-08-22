@@ -29,8 +29,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     public IPage<Role> pageRoleList(Page<Role> page1, RoleQueryVo roleQueryVo) {
         //判断
         QueryWrapper<Role> roleWrapper = new QueryWrapper<>();
-        if (StringUtils.isEmpty(roleQueryVo)) {
+        if (!StringUtils.isEmpty(roleQueryVo)) {
             roleWrapper.like("role_name", roleQueryVo.getRoleName());
+            roleWrapper.select().orderByDesc("create_time");
         }
         Page<Role> rolePage = roleMapper.selectPage(page1, roleWrapper);
         return rolePage;

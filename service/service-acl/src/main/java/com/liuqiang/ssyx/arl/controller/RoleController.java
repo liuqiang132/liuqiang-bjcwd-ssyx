@@ -40,12 +40,12 @@ public class RoleController {
     @ApiOperation(value = "保存一个新角色")
     @PostMapping("/save")
     public Result saveRole(@RequestBody Role role) {
-        if (null != role) {
-            return Result.success(roleService.save(role));
+        boolean save = roleService.save(role);
+        if (save){
+            return Result.success(null);
         }else {
             return Result.fail(null);
         }
-
     }
 
     @ApiOperation(value = "获取某个角色")
