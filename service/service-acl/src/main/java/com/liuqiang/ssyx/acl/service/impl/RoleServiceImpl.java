@@ -1,11 +1,11 @@
-package com.liuqiang.ssyx.arl.service.impl;
+package com.liuqiang.ssyx.acl.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.liuqiang.ssyx.arl.mapper.RoleMapper;
-import com.liuqiang.ssyx.arl.service.RoleService;
+import com.liuqiang.ssyx.acl.mapper.RoleMapper;
+import com.liuqiang.ssyx.acl.service.RoleService;
 import com.liuqiang.ssyx.model.acl.Role;
 import com.liuqiang.ssyx.vo.acl.RoleQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;

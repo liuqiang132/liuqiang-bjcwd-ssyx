@@ -1,4 +1,4 @@
-package com.liuqiang.ssyx.arl;
+package com.liuqiang.ssyx.acl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

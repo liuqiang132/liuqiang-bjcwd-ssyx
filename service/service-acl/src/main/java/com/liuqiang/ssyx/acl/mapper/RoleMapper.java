@@ -1,4 +1,4 @@
-package com.liuqiang.ssyx.arl.mapper;
+package com.liuqiang.ssyx.acl.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liuqiang.ssyx.model.acl.Role;

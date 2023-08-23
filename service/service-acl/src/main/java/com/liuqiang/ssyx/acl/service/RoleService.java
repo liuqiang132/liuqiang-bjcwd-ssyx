@@ -1,4 +1,4 @@
-package com.liuqiang.ssyx.arl.service;
+package com.liuqiang.ssyx.acl.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

@@ -2,7 +2,7 @@
 #应用名称
 spring:
   application:
-    name: service-arl
+    name: service-acl
 
 #开发环境
   profiles:
