@@ -1,0 +1,9 @@
+
+#应用名称
+spring:
+  application:
+    name: service-arl
+
+#开发环境
+  profiles:
+    active: dev
