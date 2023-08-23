@@ -1,7 +1,8 @@
 package com.liuqiang.ssyx.acl.service;
 
-import com.liuqiang.ssyx.acl.entity.Admin;
+
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.acl.Admin;
 
 /**
  * <p>
