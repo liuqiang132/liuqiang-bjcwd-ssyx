@@ -4,6 +4,7 @@ package com.liuqiang.ssyx.acl.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liuqiang.ssyx.acl.service.AdminService;
+import com.liuqiang.ssyx.acl.service.RoleService;
 import com.liuqiang.ssyx.common.result.Result;
 import com.liuqiang.ssyx.model.acl.Admin;
 import com.liuqiang.ssyx.vo.acl.AdminQueryVo;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -30,6 +32,25 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private RoleService roleService;
+
+    @ApiOperation(value = "获取某个用户的所有角色")
+    @GetMapping("/toAssign/{adminId}")
+    public Result getRoles(@PathVariable("adminId") Long adminId){
+      Map<String,Object> map = roleService.getRoleByAdminId(adminId);
+        return Result.success(map);
+    }
+
+
+    @ApiOperation(value = "给某个用户分配角色,'roleId的结构: 字符串, 'rId1,rId2,rId3'")
+    @PostMapping("/doAssign")
+    public Result assignRoles(){
+
+
+
+        return Result.success(null);
+    }
     @ApiOperation(value = "获取后台用户分页列表(带搜索)")
     @GetMapping("/{page}/{limit}")
     public Result getPageList(@PathVariable("page") Long page, @PathVariable("limit") Long limit, AdminQueryVo adminQueryVo){
@@ -70,19 +91,6 @@ public class AdminController {
             return Result.fail(null);
         }
 
-    }
-
-    @ApiOperation(value = "获取某个用户的所有角色")
-    @GetMapping("/toAssign/{adminId}")
-    public Result getRoles(@PathVariable("adminId") Long adminId){
-        //TODO
-        return Result.success(null);
-    }
-    @ApiOperation(value = "给某个用户分配角色,'roleId的结构: 字符串, 'rId1,rId2,rId3'")
-    @PostMapping("/doAssign")
-    public Result assignRoles(){
-        //TODO
-        return Result.success(null);
     }
     @ApiOperation(value = "删除某个用户")
     @DeleteMapping("/remove/{id}")

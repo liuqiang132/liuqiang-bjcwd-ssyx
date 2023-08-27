@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.Map;
+
 /**
  * @author liuqiang132
  * @version 1.0
@@ -35,5 +37,11 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         }
         Page<Role> rolePage = roleMapper.selectPage(page1, roleWrapper);
         return rolePage;
+    }
+
+    //获取某个用户的所有角色
+    @Override
+    public Map<String, Object> getRoleByAdminId(Long adminId) {
+        return null;
     }
 }

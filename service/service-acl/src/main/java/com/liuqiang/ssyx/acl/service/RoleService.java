@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.liuqiang.ssyx.model.acl.Role;
 import com.liuqiang.ssyx.vo.acl.RoleQueryVo;
 
+import java.util.Map;
+
 /**
  * @author liuqiang132
  * @version 1.0
@@ -15,4 +17,7 @@ import com.liuqiang.ssyx.vo.acl.RoleQueryVo;
 public interface RoleService extends IService<Role> {
 
     IPage<Role> pageRoleList(Page<Role> page1, RoleQueryVo roleQueryVo);
+
+    //获取某个用户的所有角色
+    Map<String, Object> getRoleByAdminId(Long adminId);
 }
