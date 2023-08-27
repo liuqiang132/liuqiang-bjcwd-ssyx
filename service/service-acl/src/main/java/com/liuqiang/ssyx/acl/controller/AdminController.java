@@ -45,10 +45,9 @@ public class AdminController {
 
     @ApiOperation(value = "给某个用户分配角色,'roleId的结构: 字符串, 'rId1,rId2,rId3'")
     @PostMapping("/doAssign")
-    public Result assignRoles(){
+    public Result assignRoles(@RequestParam Long adminId,@RequestParam Long[] roleId){
 
-
-
+        roleService.saveAdminRole(adminId,roleId);
         return Result.success(null);
     }
     @ApiOperation(value = "获取后台用户分页列表(带搜索)")

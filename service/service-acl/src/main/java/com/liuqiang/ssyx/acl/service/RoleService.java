@@ -20,4 +20,6 @@ public interface RoleService extends IService<Role> {
 
     //获取某个用户的所有角色
     Map<String, Object> getRoleByAdminId(Long adminId);
+
+    void saveAdminRole(Long adminId, Long[] roleId);
 }
