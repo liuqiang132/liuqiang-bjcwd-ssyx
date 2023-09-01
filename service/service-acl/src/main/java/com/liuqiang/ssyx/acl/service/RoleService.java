@@ -18,8 +18,9 @@ public interface RoleService extends IService<Role> {
 
     IPage<Role> pageRoleList(Page<Role> page1, RoleQueryVo roleQueryVo);
 
-    //获取某个用户的所有角色
+    //获取某个用户的所有角色,和根据用户id查询用户分配角色列表
     Map<String, Object> getRoleByAdminId(Long adminId);
 
+    //设置分配用户角色
     void saveAdminRole(Long adminId, Long[] roleId);
 }

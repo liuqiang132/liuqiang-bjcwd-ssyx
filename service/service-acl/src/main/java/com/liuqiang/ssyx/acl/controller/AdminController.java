@@ -38,6 +38,7 @@ public class AdminController {
     @ApiOperation(value = "获取某个用户的所有角色")
     @GetMapping("/toAssign/{adminId}")
     public Result getRoles(@PathVariable("adminId") Long adminId){
+
       Map<String,Object> map = roleService.getRoleByAdminId(adminId);
         return Result.success(map);
     }

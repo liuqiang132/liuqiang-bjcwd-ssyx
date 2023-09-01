@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liuqiang.ssyx.acl.entity.AdminRole;
 import com.liuqiang.ssyx.acl.mapper.AdminRoleMapper;
 import com.liuqiang.ssyx.acl.mapper.RoleMapper;
+import com.liuqiang.ssyx.acl.service.AdminRoleService;
 import com.liuqiang.ssyx.acl.service.RoleService;
 import com.liuqiang.ssyx.model.acl.Role;
 import com.liuqiang.ssyx.vo.acl.RoleQueryVo;
@@ -15,7 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -33,6 +37,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
     @Autowired
     private AdminRoleMapper adminRoleMapper;
+
+    @Autowired
+    private AdminRoleService adminRoleService;
     //分页查询
     @Override
     public IPage<Role> pageRoleList(Page<Role> page1, RoleQueryVo roleQueryVo) {
@@ -46,7 +53,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         return rolePage;
     }
 
-    //获取某个用户的所有角色
+    //获取某个用户的所有角色,和根据用户id查询用户分配角色列表
     @Override
     public Map<String, Object> getRoleByAdminId(Long adminId) {
         //获取所有的角色
@@ -56,9 +63,8 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         wrapper.eq(AdminRole::getAdminId,adminId);
         List<AdminRole> adminRoles = adminRoleMapper.selectList(wrapper);
         List<Long> roleIdList = adminRoles.stream()
-                      .map(AdminRole::getRoleId)
+                      .map(AdminRole::getRoleId) //item->item.getRoleId()
                       .collect(Collectors.toList());
-
         //创建新的list集合，用于存储用户配置角色
         List<Role> assignRoleList = new ArrayList<>();
         //判断所有角色里面是否包含已经分配角色id，封装到新的集合中
@@ -78,9 +84,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     @Override
     public void saveAdminRole(Long adminId, Long[] roleId) {
         //1.删除用户已经分配过的角色数据, 根据用户id删除admin_role表的豆芽数据
-        LambdaQueryWrapper<AdminRole> deleteWrapper = new LambdaQueryWrapper<>();
-        deleteWrapper.eq(AdminRole::getAdminId,adminId);
-        adminRoleMapper.delete(deleteWrapper);
+        LambdaQueryWrapper<AdminRole> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(AdminRole::getAdminId,adminId);
+        adminRoleMapper.delete(queryWrapper);
         //重新分配:遍历多个角色id，得到每隔角色id拿着每隔角色id + 用户id添加到用户角色表中
         List<AdminRole> list = new ArrayList<>();
         for (Long aLong : roleId) {
@@ -89,8 +95,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
             adminRole.setAdminId(adminId);
             list.add(adminRole);
         }
-        for (AdminRole adminRole : list) {
-            adminRoleMapper.insert(adminRole);
-        }
+        //保存数据
+        adminRoleService.saveBatch(list);
     }
 }

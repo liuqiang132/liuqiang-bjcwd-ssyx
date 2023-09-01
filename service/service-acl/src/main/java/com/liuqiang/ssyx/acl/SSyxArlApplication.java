@@ -15,6 +15,5 @@ import org.springframework.context.annotation.ComponentScan;
 public class SSyxArlApplication {
     public static void main(String[] args) {
         SpringApplication.run(SSyxArlApplication.class,args);
-
     }
 }
