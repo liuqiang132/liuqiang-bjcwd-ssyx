@@ -1,9 +1,10 @@
 package com.liuqiang.ssyx.acl.service.impl;
 
-import com.liuqiang.ssyx.acl.entity.AdminRole;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liuqiang.ssyx.acl.mapper.AdminRoleMapper;
 import com.liuqiang.ssyx.acl.service.AdminRoleService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liuqiang.ssyx.model.acl.AdminRole;
 import org.springframework.stereotype.Service;
 
 /**

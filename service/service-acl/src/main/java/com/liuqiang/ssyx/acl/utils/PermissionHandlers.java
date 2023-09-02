@@ -23,12 +23,10 @@ public class PermissionHandlers {
                 permission.setLevel(1);
                 //调用方法从第一层开始往下找
                 result.add(findChildren(permission,permissionList));
-
             }
         }
         return result;
     }
-
     //递归查找
     private static Permission findChildren(Permission currentPermission, List<Permission> permissionList) {
         //数据的初始化
@@ -40,10 +38,9 @@ public class PermissionHandlers {
                if (permission.getChildren()==null){
                    permission.setChildren(new ArrayList<>());
                }
-               //封装下一层数据
+                //封装下一层数据
                 permission.getChildren().add(findChildren(permission,permissionList));
             }
-
         }
         return currentPermission;
     }

@@ -14,7 +14,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: TODO
+ * @description: 代码生成器
  * @date 2023/8/23 15:44
  */
 public class MpGenerator {
