@@ -1,7 +1,9 @@
 package com.liuqiang.ssyx.acl.service;
 
-import com.liuqiang.ssyx.acl.entity.Permission;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.acl.Permission;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +15,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PermissionService extends IService<Permission> {
 
+    //获取权限(菜单/功能)列表
+    List<Permission> queryAllMenu();
+
+    //删除一个权限项
+    void removeChildById(Long id);
 }

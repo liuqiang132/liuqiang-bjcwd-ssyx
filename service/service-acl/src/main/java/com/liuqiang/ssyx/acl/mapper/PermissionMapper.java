@@ -1,7 +1,7 @@
 package com.liuqiang.ssyx.acl.mapper;
 
-import com.liuqiang.ssyx.acl.entity.Permission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.liuqiang.ssyx.model.acl.Permission;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
