@@ -43,7 +43,7 @@ public class MpGenerator {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/shequ-acl?serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/shequ-sys?serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -52,7 +52,7 @@ public class MpGenerator {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("ssyx.acl"); //模块名
+        pc.setModuleName("ssyx.sys"); //模块名
         pc.setParent("com.liuqiang");
         pc.setController("controller");
         pc.setService("service");
@@ -62,7 +62,7 @@ public class MpGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("permission");
+        strategy.setInclude("region","region_ware","ware");
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
 //        strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
 

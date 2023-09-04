@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -69,8 +70,8 @@ public class PermissionController {
     @ApiOperation(value = "查看某个角色的权限列表")
     @GetMapping("/toAssign/{roleId}")
     public Result toAssign(@PathVariable("roleId") Long roleId) {
-        //TODO
-        return Result.success(null);
+        Map<String,Object> permissionList = permissionService.queryAllPermission(roleId);
+        return Result.success(permissionList);
     }
 
     @ApiOperation(value = "给某个角色授权")

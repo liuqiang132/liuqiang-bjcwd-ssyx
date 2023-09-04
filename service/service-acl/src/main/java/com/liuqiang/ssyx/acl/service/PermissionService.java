@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.liuqiang.ssyx.model.acl.Permission;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -20,4 +21,7 @@ public interface PermissionService extends IService<Permission> {
 
     //删除一个权限项
     void removeChildById(Long id);
+
+    //查看某个角色的权限列表
+    Map<String,Object> queryAllPermission(Long roleId);
 }

@@ -3,14 +3,19 @@ package com.liuqiang.ssyx.acl.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liuqiang.ssyx.acl.mapper.PermissionMapper;
+import com.liuqiang.ssyx.acl.mapper.RolePermissionMapper;
 import com.liuqiang.ssyx.acl.service.PermissionService;
 import com.liuqiang.ssyx.acl.utils.PermissionHandlers;
 import com.liuqiang.ssyx.model.acl.Permission;
+import com.liuqiang.ssyx.model.acl.RolePermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -26,6 +31,35 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     @Autowired
     private PermissionMapper permissionMapper;
 
+    @Autowired
+    private RolePermissionMapper rolePermissionMapper;
+
+
+    //查看某个角色的权限列表
+    @Override
+    public Map<String,Object> queryAllPermission(Long roleId) {
+        //封装最终数据
+        Map<String,Object> map = new HashMap<>();
+        //查询所有的菜单
+        List<RolePermission> AllPermissionList = rolePermissionMapper.selectList(null);
+        //查询角色已经分配过的菜单
+        LambdaQueryWrapper<RolePermission> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(RolePermission::getRoleId,roleId);
+        List<RolePermission> rolePermissionList = rolePermissionMapper.selectList(wrapper);
+        //过滤已经分配过的角色id
+        List<Long> longList = rolePermissionList.stream().map(RolePermission::getRoleId).collect(Collectors.toList());
+
+        //对菜单进行分类
+        List<RolePermission> permissionList = new ArrayList<>();
+        for (RolePermission permission : AllPermissionList) {
+            if (longList.contains(permission.getId())){
+                permissionList.add(permission);
+            }
+        }
+        map.put("allPermissions", AllPermissionList);
+        map.put("rolePermissionList", permissionList);
+        return map;
+    }
     //获取权限(菜单/功能)列表
     @Override
     public  List<Permission> queryAllMenu() {
