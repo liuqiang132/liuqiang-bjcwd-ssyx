@@ -1,7 +1,7 @@
 package com.liuqiang.ssyx.sys.service;
 
-import com.liuqiang.ssyx.sys.entity.Region;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.sys.Region;
 
 /**
  * <p>

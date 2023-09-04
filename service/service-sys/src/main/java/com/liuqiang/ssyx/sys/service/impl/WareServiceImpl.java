@@ -1,9 +1,9 @@
 package com.liuqiang.ssyx.sys.service.impl;
 
-import com.liuqiang.ssyx.sys.entity.Ware;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liuqiang.ssyx.model.sys.Ware;
 import com.liuqiang.ssyx.sys.mapper.WareMapper;
 import com.liuqiang.ssyx.sys.service.WareService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
