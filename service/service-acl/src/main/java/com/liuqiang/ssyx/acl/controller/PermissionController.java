@@ -37,7 +37,7 @@ public class PermissionController {
     }
 
 
-    @ApiOperation(value = "删除一个权限项")
+    @ApiOperation(value = "递归删除一个权限项")
     @DeleteMapping("/remove/{id}")
     public Result removePermission(@PathVariable("id") Long id) {
          permissionService.removeChildById(id);

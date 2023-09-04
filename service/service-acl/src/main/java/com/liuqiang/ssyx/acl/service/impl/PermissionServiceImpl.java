@@ -32,9 +32,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
 
         //查询所有的菜单列表
         List<Permission> AllPermissionList = permissionMapper.selectList(null);
-        //转换为指定对的数据格式
-        List<Permission> permissionsResult = PermissionHandlers.parsePermission(AllPermissionList);
-        return permissionsResult;
+        //转换为指定的数据格式
+        List<Permission> result = PermissionHandlers.parsePermission(AllPermissionList);
+        return result;
     }
 
     //删除一个权限项
@@ -51,10 +51,10 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         //设置当前菜单id
         idsList.add(id);
         //递归删除所有的id
-        int deleteResult = permissionMapper.deleteBatchIds(idsList);
+         permissionMapper.deleteBatchIds(idsList);
     }
 
-    //递归找当前菜单子菜单
+    //递归找当前菜单的子菜单
     private void deleteAllPermissionById(Long id, List<Long> idsList) {
         LambdaQueryWrapper<Permission> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Permission::getPid,id);
@@ -62,9 +62,9 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         //处理数据
         permissionList.forEach((item)->{
             //封装数据id到idsList
-            idsList.add(item.getPid());
+            idsList.add(item.getId());
             //递归
-            deleteAllPermissionById(item.getPid(),idsList);
+            deleteAllPermissionById(item.getId(),idsList);
         });
     }
 }
