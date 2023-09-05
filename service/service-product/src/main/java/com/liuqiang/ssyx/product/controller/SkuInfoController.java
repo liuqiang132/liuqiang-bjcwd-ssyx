@@ -53,13 +53,12 @@ public class SkuInfoController {
 
     @ApiOperation(value = "保存sku商品")
     @PostMapping("/save")
-    public Result save(@RequestBody SkuInfo skuInfo) {
-        boolean save = skuInfoService.save(skuInfo);
-        if (save){
-            return Result.success(null);
-        }else {
-            return Result.fail(null);
-        }
+    public Result save(@RequestBody SkuInfoVo skuInfoVo) {
+
+        skuInfoService.saveSkuInfo(skuInfoVo);
+
+        return Result.success(null);
+
 
     }
 

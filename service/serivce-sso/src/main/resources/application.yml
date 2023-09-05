@@ -1,0 +1,18 @@
+server:
+  port: 8205
+spring:
+  application:
+    name: service-sso
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 1000MB
+
+
+#minio配置
+file:
+  minio:
+    bucket: ssyx
+    endpoint: http://127.0.0.1:9000
+    secret-key: 7qf4xcPttAV48IYMbl1EoJRWpUZ3Ixl0vuYuu0xq
+    access-key: tK5t4j0i24lloCvo0oeY

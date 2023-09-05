@@ -23,6 +23,7 @@
         <module>service-sys</module>
         <module>service-user</module>
         <module>service-login</module>
+        <module>serivce-sso</module>
     </modules>
 
     <properties>

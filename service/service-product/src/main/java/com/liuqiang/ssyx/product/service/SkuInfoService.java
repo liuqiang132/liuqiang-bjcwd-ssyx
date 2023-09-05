@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.liuqiang.ssyx.model.product.SkuInfo;
 import com.liuqiang.ssyx.vo.product.SkuInfoQueryVo;
+import com.liuqiang.ssyx.vo.product.SkuInfoVo;
 
 /**
  * <p>
@@ -18,4 +19,7 @@ public interface SkuInfoService extends IService<SkuInfo> {
 
     //分页查询sku商品列表
     IPage<SkuInfo> getPageSkuInfoList(Page<SkuInfo> skuInfoPage, SkuInfoQueryVo skuInfoQueryVo);
+
+    //保存sku商品
+    void saveSkuInfo(SkuInfoVo skuInfoVo);
 }
