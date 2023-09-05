@@ -1,7 +1,8 @@
 package com.liuqiang.ssyx.product.mapper;
 
-import com.liuqiang.ssyx.product.entity.RegionWare;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.liuqiang.ssyx.model.sys.RegionWare;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author liuqiang132
  * @since 2023-09-05
  */
+@Mapper
 public interface RegionWareMapper extends BaseMapper<RegionWare> {
 
 }

@@ -1,7 +1,7 @@
 package com.liuqiang.ssyx.product.service;
 
-import com.liuqiang.ssyx.product.entity.MqRepeatRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.base.MqRepeatRecord;
 
 /**
  * <p>

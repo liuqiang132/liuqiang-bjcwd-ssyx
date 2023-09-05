@@ -1,9 +1,9 @@
 package com.liuqiang.ssyx.product.service.impl;
 
-import com.liuqiang.ssyx.product.entity.CommentReplay;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liuqiang.ssyx.model.product.CommentReplay;
 import com.liuqiang.ssyx.product.mapper.CommentReplayMapper;
 import com.liuqiang.ssyx.product.service.CommentReplayService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

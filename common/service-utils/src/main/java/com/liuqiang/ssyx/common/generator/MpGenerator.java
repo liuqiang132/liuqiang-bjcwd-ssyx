@@ -26,7 +26,7 @@ public class MpGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
-        gc.setOutputDir("C:\\Users\\liuqiang132\\Desktop\\liuqiang-bjcwd-ssyx\\service\\service-sys\\src\\main\\java");
+        gc.setOutputDir("C:\\Users\\liuqiang132\\Desktop\\liuqiang-bjcwd-ssyx\\service\\service-product\\src\\main\\java");
         gc.setAuthor("liuqiang132");
         gc.setOpen(false); //生成后是否打开资源管理器
         gc.setFileOverride(false); //重新生成时文件是否覆盖
@@ -43,7 +43,7 @@ public class MpGenerator {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/shequ-sys?serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/shequ-product?serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -52,7 +52,7 @@ public class MpGenerator {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("ssyx.sys"); //模块名
+        pc.setModuleName("ssyx.product"); //模块名
         pc.setParent("com.liuqiang");
         pc.setController("controller");
         pc.setService("service");
@@ -62,7 +62,8 @@ public class MpGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("region","region_ware","ware");
+        strategy.setInclude("attr","attr_group","base_category_trademark","category","comment","comment_replay","mq_repeat_record","region_ware","sku_attr_value","sku_detail","sku_image",
+                "sku_info","sku_poster","sku_stock_history","ware");
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
 //        strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
 

@@ -1,7 +1,10 @@
 package com.liuqiang.ssyx.product.service;
 
-import com.liuqiang.ssyx.product.entity.Category;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.product.Category;
+import com.liuqiang.ssyx.vo.product.CategoryQueryVo;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CategoryService extends IService<Category> {
 
+    //分页查询商品分类列表
+    IPage<Category> getPageList(Page<Category> objectPage, CategoryQueryVo categoryQueryVo);
 }

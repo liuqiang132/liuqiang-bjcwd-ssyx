@@ -1,9 +1,9 @@
 package com.liuqiang.ssyx.product.service.impl;
 
-import com.liuqiang.ssyx.product.entity.SkuStockHistory;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liuqiang.ssyx.model.product.SkuStockHistory;
 import com.liuqiang.ssyx.product.mapper.SkuStockHistoryMapper;
 import com.liuqiang.ssyx.product.service.SkuStockHistoryService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

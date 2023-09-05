@@ -1,9 +1,9 @@
 package com.liuqiang.ssyx.product.service.impl;
 
-import com.liuqiang.ssyx.product.entity.MqRepeatRecord;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liuqiang.ssyx.model.base.MqRepeatRecord;
 import com.liuqiang.ssyx.product.mapper.MqRepeatRecordMapper;
 import com.liuqiang.ssyx.product.service.MqRepeatRecordService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

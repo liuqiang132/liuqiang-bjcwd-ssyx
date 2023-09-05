@@ -1,9 +1,19 @@
 package com.liuqiang.ssyx.product.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.liuqiang.ssyx.common.result.Result;
+import com.liuqiang.ssyx.model.product.SkuInfo;
+import com.liuqiang.ssyx.product.service.SkuInfoService;
+import com.liuqiang.ssyx.vo.product.SkuInfoQueryVo;
+import com.liuqiang.ssyx.vo.product.SkuInfoVo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -13,9 +23,109 @@ import org.springframework.web.bind.annotation.RestController;
  * @author liuqiang132
  * @since 2023-09-05
  */
+@Api(tags = "sku商品列表接口")
 @RestController
-@RequestMapping("/ssyx.product/sku-info")
+@RequestMapping("/admin/product/skuInfo")
+@CrossOrigin("*")
 public class SkuInfoController {
+
+
+    @Autowired
+    private SkuInfoService skuInfoService;
+
+    @ApiOperation(value = "分页查询sku商品列表")
+    @GetMapping("/{page}/{limit}")
+    public Result getPageList(@PathVariable("page") Long page, @PathVariable("limit") Long limit, SkuInfoQueryVo skuInfoQueryVo) {
+        Page<SkuInfo> skuInfoPage = new Page<>(page, limit);
+        IPage<SkuInfo> pageSkuInfoList = skuInfoService.getPageSkuInfoList(skuInfoPage, skuInfoQueryVo);
+        return Result.success(pageSkuInfoList);
+    }
+
+    @ApiOperation(value = "根据id查询sku商品列表")
+    @GetMapping("/get/{id}")
+    public Result getById(@PathVariable("id") Long id) {
+        SkuInfo skuInfo = skuInfoService.getById(id);
+        if (skuInfo==null){
+            return Result.fail(null);
+        }
+        return Result.success(skuInfo);
+    }
+
+    @ApiOperation(value = "保存sku商品")
+    @PostMapping("/save")
+    public Result save(@RequestBody SkuInfo skuInfo) {
+        boolean save = skuInfoService.save(skuInfo);
+        if (save){
+            return Result.success(null);
+        }else {
+            return Result.fail(null);
+        }
+
+    }
+
+
+    @ApiOperation(value = "根据id更新sku商品列表")
+    @PutMapping("/update")
+    public Result updateById(@RequestBody SkuInfo skuInfo) {
+        boolean update = skuInfoService.updateById(skuInfo);
+        if (update){
+            return Result.success(null);
+        }else {
+            return Result.fail(null);
+        }
+    }
+
+    @ApiOperation(value = "根据id删除sku商品列表")
+    @DeleteMapping("/remove/{id}")
+    public Result removeById(@PathVariable("id") Long id) {
+        boolean removeById = skuInfoService.removeById(id);
+        if (removeById){
+            return Result.success(null);
+        }else {
+            return Result.fail(null);
+        }
+
+    }
+
+    @ApiOperation(value = "批量删除sku商品列表")
+    @DeleteMapping("/batchRemove")
+    public Result removeRows(@RequestBody List<Long> idList) {
+        boolean removeByIds = skuInfoService.removeByIds(idList);
+        if (removeByIds){
+            return Result.success(null);
+        }else {
+            return Result.fail(null);
+        }
+    }
+
+    //
+//    //商品上架
+//    publish(id, status) {
+//        return request({
+//                url: `${api_name}/publish/${id}/${status}`,
+//        method: 'get'
+//    })
+//    },
+
+
+    //
+//    //商品审核
+//    check(id, status) {
+//        return request({
+//                url: `${api_name}/check/${id}/${status}`,
+//        method: 'get'
+//    })
+//    },
+//
+
+    //    //新人专享
+//    isNewPerson(id, status) {
+//        return request({
+//                url: `${api_name}/isNewPerson/${id}/${status}`,
+//        method: 'get'
+//    })
+//    },
+
 
 }
 

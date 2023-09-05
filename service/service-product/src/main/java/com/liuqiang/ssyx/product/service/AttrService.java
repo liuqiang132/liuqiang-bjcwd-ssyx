@@ -1,7 +1,9 @@
 package com.liuqiang.ssyx.product.service;
 
-import com.liuqiang.ssyx.product.entity.Attr;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.product.Attr;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface AttrService extends IService<Attr> {
 
+    //根据平台属性分组id查询平台属性列表
+    List<Attr> getListAttrGroup(Long groupId);
 }

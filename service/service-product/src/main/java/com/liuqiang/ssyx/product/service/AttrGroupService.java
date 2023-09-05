@@ -1,7 +1,10 @@
 package com.liuqiang.ssyx.product.service;
 
-import com.liuqiang.ssyx.product.entity.AttrGroup;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.product.AttrGroup;
+import com.liuqiang.ssyx.vo.product.AttrGroupQueryVo;
 
 /**
  * <p>
@@ -13,4 +16,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface AttrGroupService extends IService<AttrGroup> {
 
+    //分页查询平台商品分组
+    IPage<AttrGroup> getPageAttrGroup(Page<AttrGroup> attrGroupPage, AttrGroupQueryVo attrGroupQueryVo);
 }

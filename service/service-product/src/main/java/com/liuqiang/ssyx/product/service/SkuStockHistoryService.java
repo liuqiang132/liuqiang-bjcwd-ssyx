@@ -1,7 +1,7 @@
 package com.liuqiang.ssyx.product.service;
 
-import com.liuqiang.ssyx.product.entity.SkuStockHistory;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.liuqiang.ssyx.model.product.SkuStockHistory;
 
 /**
  * <p>

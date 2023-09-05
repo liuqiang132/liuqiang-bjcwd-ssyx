@@ -1,9 +1,9 @@
 package com.liuqiang.ssyx.product.service.impl;
 
-import com.liuqiang.ssyx.product.entity.SkuAttrValue;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.liuqiang.ssyx.model.product.SkuAttrValue;
 import com.liuqiang.ssyx.product.mapper.SkuAttrValueMapper;
 import com.liuqiang.ssyx.product.service.SkuAttrValueService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
