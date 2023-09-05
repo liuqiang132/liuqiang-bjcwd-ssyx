@@ -2,11 +2,14 @@ package com.liuqiang.ssyx.sys.controller;
 
 
 import com.liuqiang.ssyx.common.result.Result;
+import com.liuqiang.ssyx.model.sys.Region;
 import com.liuqiang.ssyx.sys.service.RegionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -19,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/admin/sys/region")
 @Api(tags = "地区表接口")
-@CrossOrigin("*")
+@CrossOrigin(allowCredentials = "true")
 public class RegionController {
 
     @Autowired
@@ -29,10 +32,11 @@ public class RegionController {
     @ApiOperation(value = "根据关键字查询地区表")
     @GetMapping("/findRegionByKeyword/{keyword}")
     public Result findRegionByKeyword(@PathVariable("keyword") String keyword) {
-        return Result.success(null);
+      List<Region> list = regionService.getRegionByKeyword(keyword);
+        return Result.success(list);
     }
 
-    @ApiOperation(value = "根据关键字查询地区表")
+    @ApiOperation(value = "???")
     @GetMapping("/findByParentId/{parentId}")
     public Result findByParentId(@PathVariable("parentId") Long parentId) {
         return Result.success(null);
