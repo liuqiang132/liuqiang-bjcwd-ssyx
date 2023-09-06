@@ -37,6 +37,8 @@ public enum ResultCodeEnum {
     SKU_LIMIT_ERROR(230, "购买个数不能大于限购个数"),
     REGION_OPEN(240, "该区域已开通"),
     REGION_NO_OPEN(240, "该区域未开通"),
+    FILE_UPLOAD_FAIL(221,"文件上传失败！"),
+    FILE_UPLOAD_SUCCESS(220,"文件上传成功！"),
     ;
 
     private Integer code;

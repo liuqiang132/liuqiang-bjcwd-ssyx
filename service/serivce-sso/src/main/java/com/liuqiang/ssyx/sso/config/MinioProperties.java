@@ -1,30 +1,40 @@
 package com.liuqiang.ssyx.sso.config;
 
-import io.minio.MinioClient;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: MinioProperties配置类
+ * @description: MinioProperties属性配置类
  * @date 2023/9/5 18:25
  */
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "file.minio")
+@ConfigurationProperties(prefix = "minio")
 public class MinioProperties {
 
+    /**
+     * 对象存储服务的URL
+     */
     private String endpoint;
-    private String bucket;
+    /**
+     * Access key就像用户ID，可以唯一标识你的账户
+     */
     private String accessKey;
+    /**
+     * Secret key是你账户的密码
+     */
     private String secretKey;
 
-    @Bean
-    public MinioClient minioClient(){
-      return   MinioClient.builder().endpoint(endpoint).credentials(accessKey,secretKey).build();
-    }
+    /**
+     * 默认文件桶
+     */
+    private String bucket;
+    /**
+     * 域名
+     */
+    private String nginxHost;
 
 }

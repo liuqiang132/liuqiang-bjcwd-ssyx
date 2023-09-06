@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @date 2023/9/5 18:23
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ComponentScan(basePackages = "com.liuqiang.ssyx")
+@ComponentScan("com.liuqiang.ssyx")
 public class MinioApplication {
     public static void main(String[] args) {
 

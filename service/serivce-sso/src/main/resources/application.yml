@@ -1,5 +1,5 @@
 server:
-  port: 8205
+  port: 8204
 spring:
   application:
     name: service-sso
@@ -10,9 +10,9 @@ spring:
 
 
 #minio配置
-file:
-  minio:
-    bucket: ssyx
-    endpoint: http://127.0.0.1:9000
-    secret-key: 7qf4xcPttAV48IYMbl1EoJRWpUZ3Ixl0vuYuu0xq
-    access-key: tK5t4j0i24lloCvo0oeY
+minio:
+  bucket: liuqiang-mv
+  endpoint: http://127.0.0.1:9000
+  secret-key: password
+  access-key: admin
+  nginxHost: http://127.0.0.1:7001

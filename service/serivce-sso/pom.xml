@@ -19,9 +19,14 @@
 <!-- 添加minio依赖-->
     <dependencies>
         <dependency>
-            <groupId>plus.ojbk</groupId>
-            <artifactId>minio-spring-boot-starter</artifactId>
-            <version>1.0.4</version>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.10.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
