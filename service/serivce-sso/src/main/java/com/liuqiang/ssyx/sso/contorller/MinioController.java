@@ -28,7 +28,7 @@ public class MinioController {
     /**
      * 上传文件
      */
-    @GetMapping("/upLoadFile")
+    @PostMapping("/upLoadFile")
     @ApiOperation(value = "上传文件")
     public Result upLoadFile(@RequestBody MultipartFile multipartFile) {
         boolean upload = minioService.upload(multipartFile);
@@ -44,7 +44,7 @@ public class MinioController {
      * 下载文件
      */
     @ApiOperation(value = "下载文件")
-    @GetMapping("/downloadFile")
+    @PostMapping("/downloadFile")
     public Result downloadFile(@RequestBody MultipartFile multipartFile, HttpServletResponse response) {
         //获取文件的名称
         String fileName = multipartFile.getName();

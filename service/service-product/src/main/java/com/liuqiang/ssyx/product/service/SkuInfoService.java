@@ -22,4 +22,19 @@ public interface SkuInfoService extends IService<SkuInfo> {
 
     //保存sku商品
     void saveSkuInfo(SkuInfoVo skuInfoVo);
+
+    //根据id查询sku商品列表
+    SkuInfoVo getSkuInfo(Long id);
+
+    //根据id更新sku商品列表
+    void updateOrSaveSkuInfo(SkuInfoVo skuInfoVo);
+
+    //商品上架
+    void publishSkuInfo(Long id, Integer status);
+
+    //商品审核
+    void checkSkuInfo(Long id, Integer status);
+
+    //新人专享
+    void isNewPerson(Long id, Integer status);
 }

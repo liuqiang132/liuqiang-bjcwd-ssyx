@@ -77,7 +77,7 @@ public class CategoryController {
     }
 
     @ApiOperation(value = "根据id删除商品列表")
-    @DeleteMapping("/removeById/{id}")
+    @DeleteMapping("/remove/{id}")
     public Result removeById(@PathVariable("id") Long id) {
         boolean removeById = categoryService.removeById(id);
         if (removeById){

@@ -7,3 +7,8 @@ spring:
 #开发环境
   profiles:
     active: dev
+
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 100MB

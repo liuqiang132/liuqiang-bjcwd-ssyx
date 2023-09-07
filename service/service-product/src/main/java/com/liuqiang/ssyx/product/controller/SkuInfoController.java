@@ -44,19 +44,15 @@ public class SkuInfoController {
     @ApiOperation(value = "根据id查询sku商品列表")
     @GetMapping("/get/{id}")
     public Result getById(@PathVariable("id") Long id) {
-        SkuInfo skuInfo = skuInfoService.getById(id);
-        if (skuInfo==null){
-            return Result.fail(null);
-        }
-        return Result.success(skuInfo);
+        SkuInfoVo skuInfoVo = skuInfoService.getSkuInfo(id);
+        return Result.success(skuInfoVo);
+
     }
 
     @ApiOperation(value = "保存sku商品")
     @PostMapping("/save")
     public Result save(@RequestBody SkuInfoVo skuInfoVo) {
-
         skuInfoService.saveSkuInfo(skuInfoVo);
-
         return Result.success(null);
 
 
@@ -65,13 +61,9 @@ public class SkuInfoController {
 
     @ApiOperation(value = "根据id更新sku商品列表")
     @PutMapping("/update")
-    public Result updateById(@RequestBody SkuInfo skuInfo) {
-        boolean update = skuInfoService.updateById(skuInfo);
-        if (update){
-            return Result.success(null);
-        }else {
-            return Result.fail(null);
-        }
+    public Result updateById(@RequestBody SkuInfoVo skuInfoVo) {
+         skuInfoService.updateOrSaveSkuInfo(skuInfoVo);
+        return Result.success(null);
     }
 
     @ApiOperation(value = "根据id删除sku商品列表")
@@ -97,33 +89,26 @@ public class SkuInfoController {
         }
     }
 
-    //
-//    //商品上架
-//    publish(id, status) {
-//        return request({
-//                url: `${api_name}/publish/${id}/${status}`,
-//        method: 'get'
-//    })
-//    },
+    @ApiOperation(value = "商品上架")
+    @GetMapping("/publish/{id}/{status}")
+    public Result publish(@PathVariable("id") Long id,@PathVariable("status") Integer status){
+        skuInfoService.publishSkuInfo(id,status);
+        return Result.success(null);
+    }
 
+    @ApiOperation(value = "商品审核")
+    @GetMapping("/check/{id}/{status}")
+    public Result check(@PathVariable("id") Long id,@PathVariable("status") Integer status){
+         skuInfoService.checkSkuInfo(id,status);
+        return Result.success(null);
+    }
+    @ApiOperation(value = "新人专享")
+    @GetMapping("/isNewPerson/{id}/{status}")
+    public Result isNewPerson(@PathVariable("id") Long id,@PathVariable("status") Integer status){
 
-    //
-//    //商品审核
-//    check(id, status) {
-//        return request({
-//                url: `${api_name}/check/${id}/${status}`,
-//        method: 'get'
-//    })
-//    },
-//
-
-    //    //新人专享
-//    isNewPerson(id, status) {
-//        return request({
-//                url: `${api_name}/isNewPerson/${id}/${status}`,
-//        method: 'get'
-//    })
-//    },
+        skuInfoService.isNewPerson(id,status);
+        return Result.success(null);
+    }
 
 
 }
