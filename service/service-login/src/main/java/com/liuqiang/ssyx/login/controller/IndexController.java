@@ -15,7 +15,7 @@ import java.util.Map;
  * @date 2023/8/21 19:06
  */
 @RestController
-@RequestMapping("/login/acl/index")
+@RequestMapping("/admin/login/index")
 @Api(tags = "登录接口")
 public class IndexController {
 

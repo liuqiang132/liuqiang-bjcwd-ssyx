@@ -25,6 +25,6 @@ spring:
         - id: service-login
           uri: lb://service-login
           predicates:
-            - Path=/login/**
+            - Path=/*/login/**
 
 
