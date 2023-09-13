@@ -2,6 +2,7 @@
 server:
   port: 8203
 
+
 #mp配置
 mybatis-plus:
   configuration:
@@ -21,6 +22,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+#设置上传文件的大小
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 100MB
 
 #oss对象存储
 aliyun:
@@ -28,3 +34,5 @@ aliyun:
   keyid: LTAI5tNdhXTGe4ycgXaMNPVY
   keysecret: qQ0Ym0I1oyEVybomhCoYwLIBzwwVRh
   bucketname: guli-oss-2023
+
+

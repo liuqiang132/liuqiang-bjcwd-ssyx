@@ -1,22 +1,21 @@
-package com.liuqiang.ssyx.login;
+package com.liuqiang.ssyx.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: 登录启动类
- * @date 2023/8/21 19:40
+ * @description: 网关启动类
+ * @date 2023/9/7 16:33
  */
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ComponentScan("com.liuqiang.ssyx")
+@SpringBootApplication
 @EnableDiscoveryClient
-public class LoginApplication {
+@ComponentScan(basePackages = "com.liuqiang.ssyx")
+public class GatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LoginApplication.class,args);
+        SpringApplication.run(GatewayApplication.class,args);
     }
 }

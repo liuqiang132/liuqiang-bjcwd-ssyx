@@ -1,14 +1,18 @@
-
-#应用名称
+#服务端口
+server:
+  port: 6001
+#服务名称
 spring:
   application:
-    name: service-acl
-
-#开发环境
+    name: service-gateway
+#使用 开发者模式
   profiles:
     active: dev
-#nacos配置
+
+  #nacos配置
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
+
+

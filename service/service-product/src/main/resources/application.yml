@@ -7,8 +7,8 @@ spring:
 #开发环境
   profiles:
     active: dev
-
-  servlet:
-    multipart:
-      max-file-size: 1000MB
-      max-request-size: 100MB
+  #nacos配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

@@ -22,7 +22,6 @@ import java.util.List;
 @Api(tags = "平台属性列表接口")
 @RestController
 @RequestMapping("/admin/product/attr")
-@CrossOrigin("*")
 public class AttrController {
     @Autowired
     private AttrService attrService;

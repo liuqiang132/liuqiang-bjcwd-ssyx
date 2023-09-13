@@ -24,7 +24,6 @@ import java.util.List;
 @Api(tags = "城市仓库表接口")
 @RestController
 @RequestMapping("/admin/sys/regionWare")
-@CrossOrigin("*")
 public class RegionWareController {
 
     @Autowired

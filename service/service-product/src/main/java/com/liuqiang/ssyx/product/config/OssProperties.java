@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: TODO
+ * @description: oss配置类
  * @date 2023/9/6 17:39
  */
 @Data

@@ -1,7 +1,13 @@
-# \u670D\u52A1\u7AEF\u53E3\u53F7
+# 服务端口
 server:
   port: 8001
-#\u670D\u52A1\u540D\u79F0
+#服务名称
 spring:
   application:
     name: service-login
+
+  #nacos配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

@@ -1,0 +1,30 @@
+
+#开启网关的服务服务
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-acl
+          uri: lb://service-acl
+          predicates:
+            - Path=/*/acl/**
+
+        - id: service-sys
+          uri: lb://service-sys
+          predicates:
+            - Path=/*/sys/**
+
+        - id: service-product
+          uri: lb://service-product
+          predicates:
+            - Path=/*/product/**
+
+        - id: service-login
+          uri: lb://service-login
+          predicates:
+            - Path=/login/**
+
+

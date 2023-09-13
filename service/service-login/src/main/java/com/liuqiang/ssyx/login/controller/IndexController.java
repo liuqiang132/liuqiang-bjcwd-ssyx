@@ -16,7 +16,6 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/login/acl/index")
-@CrossOrigin("*") //后期微服务中使用服务网关进行统一处理
 @Api(tags = "登录接口")
 public class IndexController {
 
