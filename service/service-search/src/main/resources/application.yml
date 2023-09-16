@@ -1,0 +1,14 @@
+
+#应用名称
+spring:
+  application:
+    name: service-search
+
+#开发环境
+  profiles:
+    active: dev
+#nacos配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
