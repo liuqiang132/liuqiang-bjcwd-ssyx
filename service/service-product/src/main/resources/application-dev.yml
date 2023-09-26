@@ -31,8 +31,8 @@ spring:
 #oss对象存储
 aliyun:
   endpoint: oss-cn-beijing.aliyuncs.com
-  keyid: id账号
-  keysecret: key账号
+  keyid: LTAI5tNdhXTGe4ycgXaMNPVY
+  keysecret: qQ0Ym0I1oyEVybomhCoYwLIBzwwVRh
   bucketname: guli-oss-2023
 
 

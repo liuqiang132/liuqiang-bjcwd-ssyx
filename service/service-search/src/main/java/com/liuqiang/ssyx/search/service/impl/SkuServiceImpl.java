@@ -10,6 +10,8 @@ import com.liuqiang.ssyx.search.service.SkuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * @author liuqiang132
  * @version 1.0
@@ -22,7 +24,7 @@ public class SkuServiceImpl implements SkuService {
     @Autowired
     private SkuMapper skuMapper;
 
-    @Autowired
+    @Resource
     private ProductFeignClient productFeignClient;
 
     //上架商品列表
@@ -49,7 +51,7 @@ public class SkuServiceImpl implements SkuService {
         skuEs.setIsNewPerson(skuInfo.getIsNewPerson());
         skuEs.setImgUrl(skuInfo.getImgUrl());
         skuEs.setTitle(skuInfo.getSkuName());
-        if (skuInfo.getSkuType()== SkuType.COMMON.getCode()){
+        if (skuInfo.getSkuType().equals(SkuType.COMMON.getCode())){
             skuEs.setSkuType(0);
             skuEs.setPrice(skuInfo.getPrice().doubleValue());
             skuEs.setStock(skuInfo.getStock());
