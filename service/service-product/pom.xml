@@ -33,6 +33,12 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+       <!-- 添加rabbitmq-->
+        <dependency>
+            <groupId>com.liuqiang.ssyx</groupId>
+            <artifactId>rabbit-utils</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 <build>
 <plugins>

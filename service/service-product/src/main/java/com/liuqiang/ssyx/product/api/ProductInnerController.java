@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author liuqiang132
  * @version 1.0
- * @description: TODO
+ * @description: 商品远程服务接口
  * @date 2023/9/14 12:35
  */
 @RestController

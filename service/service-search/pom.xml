@@ -26,6 +26,11 @@
             <artifactId>service-product-client</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.liuqiang.ssyx</groupId>
+            <artifactId>rabbit-utils</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -5,7 +5,7 @@ import com.liuqiang.ssyx.enums.SkuType;
 import com.liuqiang.ssyx.model.product.Category;
 import com.liuqiang.ssyx.model.product.SkuInfo;
 import com.liuqiang.ssyx.model.search.SkuEs;
-import com.liuqiang.ssyx.search.mapper.SkuMapper;
+import com.liuqiang.ssyx.search.mapper.SkuESMapper;
 import com.liuqiang.ssyx.search.service.SkuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 public class SkuServiceImpl implements SkuService {
 
     @Autowired
-    private SkuMapper skuMapper;
+    private SkuESMapper skuESMapper;
 
     @Resource
     private ProductFeignClient productFeignClient;
@@ -51,19 +51,21 @@ public class SkuServiceImpl implements SkuService {
         skuEs.setIsNewPerson(skuInfo.getIsNewPerson());
         skuEs.setImgUrl(skuInfo.getImgUrl());
         skuEs.setTitle(skuInfo.getSkuName());
-        if (skuInfo.getSkuType().equals(SkuType.COMMON.getCode())){
+        if (skuInfo.getSkuType()==(SkuType.COMMON.getCode())){
             skuEs.setSkuType(0);
             skuEs.setPrice(skuInfo.getPrice().doubleValue());
             skuEs.setStock(skuInfo.getStock());
             skuEs.setSale(skuInfo.getSale());
             skuEs.setPerLimit(skuInfo.getPerLimit());
+        }else {
+
         }
-        skuMapper.save(skuEs);
+        skuESMapper.save(skuEs);
     }
     //下架商品列表
     @Override
     public void lowerSku(Long skuId) {
         //删除即可
-        skuMapper.deleteById(skuId);
+        skuESMapper.deleteById(skuId);
     }
 }

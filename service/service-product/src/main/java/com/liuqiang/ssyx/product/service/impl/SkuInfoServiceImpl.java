@@ -8,6 +8,8 @@ import com.liuqiang.ssyx.model.product.SkuAttrValue;
 import com.liuqiang.ssyx.model.product.SkuImage;
 import com.liuqiang.ssyx.model.product.SkuInfo;
 import com.liuqiang.ssyx.model.product.SkuPoster;
+import com.liuqiang.ssyx.mq.constant.MqConst;
+import com.liuqiang.ssyx.mq.service.RabbitService;
 import com.liuqiang.ssyx.product.mapper.SkuInfoMapper;
 import com.liuqiang.ssyx.product.service.SkuAttrValueService;
 import com.liuqiang.ssyx.product.service.SkuImageService;
@@ -48,6 +50,11 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
     private SkuAttrValueService skuAttrValueService;
 
 
+    //rabbitmq工具
+    @Autowired
+    private RabbitService rabbitService;
+
+
 
     //商品上架
     @Override
@@ -59,12 +66,19 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
             skuInfo.setPublishStatus(status);
             skuInfoMapper.updateById(skuInfo);
             //TODO 值mq把数据同步到es中
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
+                                      MqConst.ROUTING_GOODS_UPPER,
+                                      id);
         }else {
             //设置商品下架
             SkuInfo skuInfo = skuInfoMapper.selectById(id);
             skuInfo.setPublishStatus(status);
             skuInfoMapper.updateById(skuInfo);
             //TODO 值mq把数据同步到es中
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
+                                      MqConst.ROUTING_GOODS_LOWER,
+                                       id);
+
         }
     }
 

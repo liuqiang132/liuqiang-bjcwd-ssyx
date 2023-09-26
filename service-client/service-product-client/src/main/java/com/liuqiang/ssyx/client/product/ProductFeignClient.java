@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "service-product") //要调用的服务名称
 public interface ProductFeignClient {
 
-    //根据skuId获取分类信息
+    //根据categoryId获取分类信息
     @GetMapping("/api/product/inner/getCategory/{categoryId}")
-    public Category getCategory(@PathVariable("categoryId") Long categoryId);
+    Category getCategory(@PathVariable("categoryId") Long categoryId);
 
     //根据SkuId获取sku信息
     @GetMapping("/api/product/inner/getSkuInfo/{skuId}")
-    public SkuInfo getSkuInfo(@PathVariable("skuId") Long skuId);
+    SkuInfo getSkuInfo(@PathVariable("skuId") Long skuId);
 
 
 

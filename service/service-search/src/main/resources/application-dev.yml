@@ -13,29 +13,40 @@ spring:
     allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
   elasticsearch:
     rest:
-      uris: http://localhost:9200
-#  rabbitmq:
-#    host: 192.168.197.128
-#    port: 5672
-#    username: guest
-#    password: guest
-#    publisher-confirm-type: CORRELATED
-#    publisher-returns: true
-#    listener:
-#      simple:
-#        prefetch: 1
-#        concurrency: 3
-#        acknowledge-mode: manual
-#  redis:
-#    host: localhost
-#    port: 6379
-#    database: 0
-#    timeout: 1800000
-#    password:
-#    lettuce:
-#      pool:
-#        max-active: 20 #最大连接数
-#        max-wait: -1    #最大阻塞等待时间(负数表示没限制)
-#        max-idle: 5    #最大空闲
-#        min-idle: 0     #最小空闲
+      uris: http://43.143.179.85:9200
+
+#mysql配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shequ-product?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+#rabbitmq
+  rabbitmq:
+    host: 43.143.179.85
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: CORRELATED
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 1
+        concurrency: 3
+        acknowledge-mode: manual
+
+#redis
+  redis:
+    host: 43.143.179.85
+    port: 6379
+    database: 0
+    timeout: 1800000
+    password:
+    lettuce:
+      pool:
+        max-active: 20 #最大连接数
+        max-wait: -1    #最大阻塞等待时间(负数表示没限制)
+        max-idle: 5    #最大空闲
+        min-idle: 0     #最小空闲
 

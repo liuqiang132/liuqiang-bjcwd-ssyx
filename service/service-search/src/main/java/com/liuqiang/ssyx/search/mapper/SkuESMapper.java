@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * @date 2023/9/14 12:27
  */
 @Repository
-public interface SkuMapper extends ElasticsearchRepository<SkuEs,Long> {
+public interface SkuESMapper extends ElasticsearchRepository<SkuEs,Long> {
 }
