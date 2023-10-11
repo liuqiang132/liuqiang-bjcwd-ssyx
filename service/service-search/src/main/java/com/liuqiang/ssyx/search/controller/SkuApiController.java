@@ -1,7 +1,7 @@
 package com.liuqiang.ssyx.search.controller;
 
 import com.liuqiang.ssyx.common.result.Result;
-import com.liuqiang.ssyx.search.service.SkuService;
+import com.liuqiang.ssyx.search.service.SkuEsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SkuApiController {
 
     @Autowired
-    private SkuService skuService;
+    private SkuEsService skuService;
     //商品上架
     @GetMapping("/inner/upperSku/{skuId}")
     public Result upperSku(@PathVariable("skuId") Long skuId){

@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Api(tags = "oss文件上传与下载接口")
 @RestController
 @RequestMapping("/admin/product")
+@CrossOrigin("*")
 public class FileUploadController {
 
     @Autowired

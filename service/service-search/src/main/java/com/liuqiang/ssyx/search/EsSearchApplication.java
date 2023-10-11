@@ -2,7 +2,6 @@ package com.liuqiang.ssyx.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,9 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @description: es搜索引擎启动类
  * @date 2023/9/14 12:14
  */
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 @EnableDiscoveryClient  //开启nacos服务注册
-@EnableFeignClients //开启服务的远程调用
+@EnableFeignClients("com.liuqiang.ssyx.client.product") //开启服务的远程调用
 @ComponentScan(basePackages = "com.liuqiang.ssyx")
 public class EsSearchApplication {
     public static void main(String[] args) {

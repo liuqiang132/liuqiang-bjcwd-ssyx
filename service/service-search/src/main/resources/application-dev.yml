@@ -13,7 +13,7 @@ spring:
     allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
   elasticsearch:
     rest:
-      uris: http://43.143.179.85:9200
+      uris: http://服务器:9200
 
 #mysql配置
   datasource:
@@ -24,7 +24,7 @@ spring:
     password: root
 #rabbitmq
   rabbitmq:
-    host: 43.143.179.85
+    host: 服务器
     port: 5672
     username: guest
     password: guest
@@ -38,7 +38,7 @@ spring:
 
 #redis
   redis:
-    host: 43.143.179.85
+    host: 服务器
     port: 6379
     database: 0
     timeout: 1800000

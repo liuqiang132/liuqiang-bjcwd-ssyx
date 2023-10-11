@@ -46,8 +46,6 @@ public class FileUploadServiceIMpl implements FileUploadService {
             fileName = timeUrl+"/"+fileName;
             //调用方法实现上传
             ossClient.putObject(ossProperties.getBucketName(), fileName, inputStream);
-            // 关闭OSSClient。
-            ossClient.shutdown();
             //上传之后文件路径
             // https://ssyx-atguigu.oss-cn-beijing.aliyuncs.com/01.jpg
             String url = "https://"+ossProperties.getBucketName()+"."+ossProperties.getEndpoint()+"/"+fileName;

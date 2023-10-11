@@ -18,6 +18,21 @@ spring:
     url: jdbc:mysql://localhost:3306/shequ-product?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
+
+
+#rabbitmq
+  rabbitmq:
+    host: 43.143.179.85
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: CORRELATED
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 1
+        concurrency: 3
+        acknowledge-mode: manual
 #jackson配置
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -33,6 +48,7 @@ aliyun:
   endpoint: oss-cn-beijing.aliyuncs.com
   keyid: LTAI5tNdhXTGe4ycgXaMNPVY
   keysecret: qQ0Ym0I1oyEVybomhCoYwLIBzwwVRh
-  bucketname: guli-oss-2023
+  bucketname: liuqiang-ssyx-oss
+
 
 

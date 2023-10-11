@@ -49,7 +49,6 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
     @Autowired
     private SkuAttrValueService skuAttrValueService;
 
-
     //rabbitmq工具
     @Autowired
     private RabbitService rabbitService;
@@ -65,19 +64,15 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
             SkuInfo skuInfo = skuInfoMapper.selectById(id);
             skuInfo.setPublishStatus(status);
             skuInfoMapper.updateById(skuInfo);
-            //TODO 值mq把数据同步到es中
-            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
-                                      MqConst.ROUTING_GOODS_UPPER,
-                                      id);
+            // 值mq把数据同步到es中
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT, MqConst.ROUTING_GOODS_UPPER, id);
         }else {
             //设置商品下架
             SkuInfo skuInfo = skuInfoMapper.selectById(id);
             skuInfo.setPublishStatus(status);
             skuInfoMapper.updateById(skuInfo);
-            //TODO 值mq把数据同步到es中
-            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
-                                      MqConst.ROUTING_GOODS_LOWER,
-                                       id);
+            //值mq把数据同步到es中
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT, MqConst.ROUTING_GOODS_LOWER, id);
 
         }
     }
@@ -142,8 +137,6 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
                 }
                 skuPosterService.saveBatch(skuPosterList);
             }
-
-
 
             skuAttrValueService.remove(new LambdaQueryWrapper<SkuAttrValue>().eq(SkuAttrValue::getSkuId,skuInfoVo.getId()));
             List<SkuAttrValue> skuAttrValueList = skuInfoVo.getSkuAttrValueList();

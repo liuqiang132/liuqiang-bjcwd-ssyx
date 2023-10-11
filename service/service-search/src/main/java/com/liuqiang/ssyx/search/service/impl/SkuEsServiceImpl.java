@@ -6,11 +6,9 @@ import com.liuqiang.ssyx.model.product.Category;
 import com.liuqiang.ssyx.model.product.SkuInfo;
 import com.liuqiang.ssyx.model.search.SkuEs;
 import com.liuqiang.ssyx.search.mapper.SkuESMapper;
-import com.liuqiang.ssyx.search.service.SkuService;
+import com.liuqiang.ssyx.search.service.SkuEsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @author liuqiang132
@@ -19,12 +17,12 @@ import javax.annotation.Resource;
  * @date 2023/9/14 12:23
  */
 @Service
-public class SkuServiceImpl implements SkuService {
+public class SkuEsServiceImpl implements SkuEsService {
 
     @Autowired
     private SkuESMapper skuESMapper;
 
-    @Resource
+    @Autowired
     private ProductFeignClient productFeignClient;
 
     //上架商品列表

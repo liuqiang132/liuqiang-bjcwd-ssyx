@@ -22,7 +22,7 @@ spring:
 
 #rabbitmq
   rabbitmq:
-    host: 43.143.179.85
+    host: 服务器
     port: 5672
     username: guest
     password: guest
@@ -45,11 +45,10 @@ spring:
 
 #oss对象存储
 aliyun:
-  endpoint: oss-cn-beijing.aliyuncs.com
-  keyid: LTAI5tNdhXTGe4ycgXaMNPVY
-  keysecret: qQ0Ym0I1oyEVybomhCoYwLIBzwwVRh
-  bucketname: guli-oss-2023
-
+  endpoint: 自己的
+  keyid: 自己的
+  keysecret: 自己的
+  bucketname: 自己的
 
 
 

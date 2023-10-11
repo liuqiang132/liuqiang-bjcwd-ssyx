@@ -6,7 +6,7 @@ package com.liuqiang.ssyx.search.service;
  * @description:
  * @date 2023/9/14 12:22
  */
-public interface SkuService {
+public interface SkuEsService {
     /**
      * 上架商品列表
      * @param skuId
